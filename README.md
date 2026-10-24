@@ -168,6 +168,19 @@ docker compose down
 
 ---
 
+## Deployment & Cloud Publishing
+
+PaperFlow is configured for instant cloud publishing across multiple hosting environments:
+
+- **Vercel (Frontend)**: Ready out-of-the-box via root [`vercel.json`](./vercel.json) and [`package.json`](./package.json).
+- **Render (Full-Stack Blueprint)**: 1-click deploy for both Python FastAPI backend and Next.js frontend via [`render.yaml`](./render.yaml).
+- **GitHub Pages**: Automated static export workflow pre-configured via [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml).
+- **Docker Compose**: Containerized multi-service deployment with Redis and system binaries via [`docker-compose.yml`](./docker-compose.yml).
+
+👉 **For complete step-by-step instructions, see the [Deployment Guide (DEPLOYMENT.md)](./DEPLOYMENT.md).**
+
+---
+
 ## Privacy, Security & Data Retention
 
 - **Zero Global Writes**: Every job gets a dedicated temporary folder: `backend/data/temp/<job_id>/inputs` and `outputs`.

@@ -1,0 +1,21 @@
+{
+  "name": "paperflow-monorepo",
+  "version": "1.0.0",
+  "description": "PaperFlow - All-in-One Online Document Utility Platform",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "start": "npm run start --prefix frontend",
+    "lint": "npm run lint --prefix frontend"
+  },
+  "keywords": [
+    "pdf",
+    "document-processing",
+    "nextjs",
+    "fastapi",
+    "paperflow"
+  ],
+  "author": "vinnumaiml",
+  "license": "MIT"
+}
