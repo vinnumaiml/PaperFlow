@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # PaperFlow Next.js Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: paperflow_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - paperflow_network
+
+  # PaperFlow FastAPI Document Processing API
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: paperflow_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - BRAND_NAME=PaperFlow
+      - APP_ENV=production
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+      - STORAGE_PATH=/app/data/storage
+      - TEMP_DIR=/app/data/temp
+      - MAX_FILE_SIZE_MB=50
+      - MAX_BATCH_FILES=30
+      - JOB_RETENTION_MINUTES=60
+      - CLEANUP_INTERVAL_MINUTES=15
+      - AI_PROVIDER=openai
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=gpt-4o-mini
+    volumes:
+      - paperflow_temp_data:/app/data/temp
+      - paperflow_storage_data:/app/data/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - paperflow_network
+
+  # Redis for job queueing / caching
+  redis:
+    image: redis:7-alpine
+    container_name: paperflow_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - paperflow_redis_data:/data
+    networks:
+      - paperflow_network
+
+volumes:
+  paperflow_temp_data:
+  paperflow_storage_data:
+  paperflow_redis_data:
+
+networks:
+  paperflow_network:
+    driver: bridge

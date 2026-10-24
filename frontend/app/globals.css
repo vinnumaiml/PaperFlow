@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   PAPERFLOW PREMIUM COLOUR SYSTEM DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+  /* Brand Primary */
+  --brand-primary: #5146D8;
+  --brand-primary-hover: #4338B8;
+  --brand-primary-pressed: #373099;
+  --brand-primary-light: #EEEDFF;
+  --brand-primary-border: #CECBFF;
+  --brand-focus-ring: #A5B4FC;
+
+  /* Brand Accents */
+  --accent-violet: #8B5CF6;
+  --accent-violet-light: #F2EBFF;
+  --accent-teal: #0F9F91;
+  --accent-teal-light: #E5FAF5;
+  --accent-blue: #175CD3;
+  --accent-blue-light: #EFF8FF;
+
+  /* Surfaces & Backgrounds */
+  --bg-app: #F7F8FC;
+  --surface-main: #FFFFFF;
+  --surface-secondary: #F1F3F9;
+  --surface-elevated: #FFFFFF;
+
+  /* Typography */
+  --text-primary: #171A33;
+  --text-secondary: #555D75;
+  --text-muted: #788198;
+
+  /* Borders & Dividers */
+  --border-subtle: #E2E6F0;
+  --border-strong: #CCD2E2;
+  --border-divider: #E9ECF4;
+
+  /* Disabled States */
+  --disabled-bg: #ECEEF5;
+  --disabled-text: #9299AC;
+
+  /* Primary Button */
+  --btn-primary-bg: #5146D8;
+  --btn-primary-hover: #4338B8;
+  --btn-primary-text: #FFFFFF;
+
+  /* Semantic Status Tokens (Light) */
+  --status-success-text: #15803D;
+  --status-success-bg: #ECFDF3;
+  --status-success-border: #ABEFC6;
+
+  --status-warning-text: #B54708;
+  --status-warning-bg: #FFFAEB;
+  --status-warning-border: #FEDF89;
+
+  --status-error-text: #B42318;
+  --status-error-bg: #FEF3F2;
+  --status-error-border: #FECDCA;
+
+  --status-info-text: #175CD3;
+  --status-info-bg: #EFF8FF;
+
+  /* Category Accents (Light) */
+  --cat-organize-accent: #5146D8;
+  --cat-organize-bg: #EEEDFF;
+  --cat-compress-accent: #0F9F91;
+  --cat-compress-bg: #E5FAF5;
+  --cat-convert-accent: #175CD3;
+  --cat-convert-bg: #EFF8FF;
+  --cat-edit-accent: #8B5CF6;
+  --cat-edit-bg: #F2EBFF;
+  --cat-security-accent: #373099;
+  --cat-security-bg: #EEEDFF;
+  --cat-intelligence-accent: #8B5CF6;
+  --cat-intelligence-bg: #F2EBFF;
+
+  /* Unified Brand Gradient */
+  --brand-gradient: linear-gradient(135deg, #5146D8 0%, #7657E8 55%, #8B5CF6 100%);
+}
+
+.dark {
+  /* Brand Primary (Dark) */
+  --brand-primary: #7568F2;
+  --brand-primary-hover: #887DFB;
+  --brand-primary-pressed: #5146D8;
+  --brand-primary-light: #29264E;
+  --brand-primary-border: #3C4768;
+  --brand-focus-ring: #A5B4FC;
+
+  /* Brand Accents (Dark) */
+  --accent-violet: #8B5CF6;
+  --accent-violet-light: #281F54;
+  --accent-teal: #0F9F91;
+  --accent-teal-light: #123528;
+  --accent-blue: #84CAFF;
+  --accent-blue-light: #152C46;
+
+  /* Surfaces & Backgrounds (Dark) */
+  --bg-app: #0D1020;
+  --surface-main: #14182B;
+  --surface-secondary: #1A2036;
+  --surface-elevated: #202741;
+
+  /* Typography (Dark) */
+  --text-primary: #F4F6FF;
+  --text-secondary: #C0C7DC;
+  --text-muted: #939DB8;
+
+  /* Borders & Dividers (Dark) */
+  --border-subtle: #2B3450;
+  --border-strong: #3C4768;
+  --border-divider: #252E47;
+
+  /* Disabled States (Dark) */
+  --disabled-bg: #1B2138;
+  --disabled-text: #5A6482;
+
+  /* Primary Button (Dark) */
+  --btn-primary-bg: #7568F2;
+  --btn-primary-hover: #887DFB;
+  --btn-primary-text: #FFFFFF;
+
+  /* Semantic Status Tokens (Dark) */
+  --status-success-text: #6CE9A6;
+  --status-success-bg: #123528;
+  --status-success-border: #24684B;
+
+  --status-warning-text: #FEC84B;
+  --status-warning-bg: #382A12;
+  --status-warning-border: #6B4D1A;
+
+  --status-error-text: #FDA29B;
+  --status-error-bg: #401C21;
+  --status-error-border: #7A2E35;
+
+  --status-info-text: #84CAFF;
+  --status-info-bg: #152C46;
+
+  /* Category Accents (Dark) */
+  --cat-organize-accent: #7568F2;
+  --cat-organize-bg: #29264E;
+  --cat-compress-accent: #0F9F91;
+  --cat-compress-bg: #123528;
+  --cat-convert-accent: #84CAFF;
+  --cat-convert-bg: #152C46;
+  --cat-edit-accent: #8B5CF6;
+  --cat-edit-bg: #281F54;
+  --cat-security-accent: #887DFB;
+  --cat-security-bg: #29264E;
+  --cat-intelligence-accent: #8B5CF6;
+  --cat-intelligence-bg: #281F54;
+}
+
+@theme {
+  /* Dynamic System Colors */
+  --color-app: var(--bg-app);
+  --color-surface: var(--surface-main);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-border-divider: var(--border-divider);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-hover: var(--brand-primary-hover);
+  --color-brand-pressed: var(--brand-primary-pressed);
+  --color-brand-light: var(--brand-primary-light);
+  --color-brand-border: var(--brand-primary-border);
+  --color-brand-ring: var(--brand-focus-ring);
+
+  --color-violet: var(--accent-violet);
+  --color-violet-light: var(--accent-violet-light);
+  --color-teal: var(--accent-teal);
+  --color-teal-light: var(--accent-teal-light);
+  --color-blue: var(--accent-blue);
+  --color-blue-light: var(--accent-blue-light);
+
+  /* Exact Color System Palette Mappings */
+  --color-slate-50: #F7F8FC;
+  --color-slate-100: #F1F3F9;
+  --color-slate-200: #E2E6F0;
+  --color-slate-300: #CCD2E2;
+  --color-slate-400: #788198;
+  --color-slate-500: #555D75;
+  --color-slate-600: #555D75;
+  --color-slate-700: #171A33;
+  --color-slate-800: #2B3450;
+  --color-slate-900: #14182B;
+  --color-slate-950: #0D1020;
+
+  --color-indigo-50: #EEEDFF;
+  --color-indigo-100: #CECBFF;
+  --color-indigo-200: #A5B4FC;
+  --color-indigo-300: #887DFB;
+  --color-indigo-400: #7568F2;
+  --color-indigo-500: #5146D8;
+  --color-indigo-600: #5146D8;
+  --color-indigo-700: #4338B8;
+  --color-indigo-800: #373099;
+  --color-indigo-900: #29264E;
+  --color-indigo-950: #29264E;
+
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base custom classes for PaperFlow button system */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-1px);
+}
+.btn-primary:active:not(:disabled) {
+  background-color: var(--brand-primary-pressed);
+  transform: translateY(0);
+}
+.btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-focus-ring);
+}
+.btn-primary:disabled {
+  background-color: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--surface-secondary);
+}
+.btn-secondary:focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-focus-ring);
+}
+.btn-secondary:disabled {
+  background-color: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+/* Category Accent Utility Badges */
+.badge-organize {
+  color: var(--cat-organize-accent);
+  background-color: var(--cat-organize-bg);
+}
+.badge-compress {
+  color: var(--cat-compress-accent);
+  background-color: var(--cat-compress-bg);
+}
+.badge-convert {
+  color: var(--cat-convert-accent);
+  background-color: var(--cat-convert-bg);
+}
+.badge-edit {
+  color: var(--cat-edit-accent);
+  background-color: var(--cat-edit-bg);
+}
+.badge-security {
+  color: var(--cat-security-accent);
+  background-color: var(--cat-security-bg);
+}
+.badge-intelligence {
+  color: var(--cat-intelligence-accent);
+  background-color: var(--cat-intelligence-bg);
+}
+
+/* Focus ring helper */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 3px var(--brand-focus-ring);
+}
+
+/* Brand gradient text utility */
+.brand-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
