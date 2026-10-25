@@ -1,0 +1,3 @@
+# Netlify routing rules for PaperFlow Next.js App
+/_next/*  /_next/:splat  200
+/*        /index.html    200

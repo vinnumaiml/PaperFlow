@@ -44,7 +44,27 @@ PaperFlow includes a ready-to-use [`render.yaml`](./render.yaml) specification:
 
 ---
 
-## Option 3 — GitHub Pages (Frontend Static UI)
+## Option 3 — Deploying to Netlify (Frontend)
+
+PaperFlow includes pre-configured [`netlify.toml`](./netlify.toml) and [`frontend/public/_redirects`](./frontend/public/_redirects) files to ensure seamless deployment without "Page Not Found" errors:
+
+### How to Deploy on Netlify:
+1. Go to [Netlify.com](https://app.netlify.com/) and click **Add new site** > **Import an existing project**.
+2. Connect your GitHub account and select **`vinnumaiml/PaperFlow`**.
+3. Netlify will automatically detect the settings from `netlify.toml`:
+   - **Base directory**: `.` (or `frontend`)
+   - **Build command**: `cd frontend && npm install && npm run build` (or `npm run build`)
+   - **Publish directory**: `frontend/out` (or `out`)
+4. Under **Environment variables**, add:
+   - `NEXT_PUBLIC_API_URL` = `https://your-backend-url.onrender.com` (your live FastAPI backend URL)
+5. Click **Deploy PaperFlow**.
+6. If you already have an existing site on Netlify showing "Page Not Found":
+   - Go to **Deploys** in your Netlify site dashboard.
+   - Click **Trigger deploy** > **Clear cache and deploy site**.
+
+---
+
+## Option 4 — GitHub Pages (Frontend Static UI)
 
 To publish the frontend directly on GitHub Pages using the included GitHub Actions workflow:
 
@@ -59,7 +79,7 @@ To publish the frontend directly on GitHub Pages using the included GitHub Actio
 
 ---
 
-## Option 4 — Self-Hosted via Docker
+## Option 5 — Self-Hosted via Docker
 
 To run both services together on any VPS, cloud server, or local machine:
 

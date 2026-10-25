@@ -172,6 +172,7 @@ docker compose down
 
 PaperFlow is configured for instant cloud publishing across multiple hosting environments:
 
+- **Netlify (Frontend)**: Zero-config deployment via root [`netlify.toml`](./netlify.toml) and [`frontend/public/_redirects`](./frontend/public/_redirects).
 - **Vercel (Frontend)**: Ready out-of-the-box via root [`vercel.json`](./vercel.json) and [`package.json`](./package.json).
 - **Render (Full-Stack Blueprint)**: 1-click deploy for both Python FastAPI backend and Next.js frontend via [`render.yaml`](./render.yaml).
 - **GitHub Pages**: Automated static export workflow pre-configured via [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml).

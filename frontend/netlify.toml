@@ -1,0 +1,21 @@
+# Netlify Configuration for PaperFlow Frontend
+# This file handles builds when "frontend" is selected as the base directory in Netlify.
+
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NETLIFY = "true"
+  NEXT_EXPORT = "true"
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/_next/*"
+  to = "/_next/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
